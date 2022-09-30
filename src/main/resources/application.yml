@@ -1,0 +1,21 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          cognito:
+            client-id:
+            client-secret:
+            scope: openid
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8080/api/login/oauth2/code/cognito
+            client-authentication-method: client_secret_basic
+            client-name: localtest
+        provider:
+          cognito:
+            issuer-uri:
+            user-name-attribute: cognito:username
+debug: true
+server:
+  servlet:
+    context-path: /api
